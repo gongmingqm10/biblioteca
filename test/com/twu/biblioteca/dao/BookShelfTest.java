@@ -25,5 +25,19 @@ public class BookShelfTest {
         }
     }
 
+    @Test
+    public void checkoutBookTest() {
+        bookShelf.checkoutBook(0);
+        Assert.assertEquals("'Seven Database in Seven Weeks' should be checked out", "Seven Database in Seven Weeks", bookShelf.getCheckoutList().get(0).getName());
+    }
+
+    @Test
+    public void returnBookTest() {
+        bookShelf.checkoutBook(0);
+        Assert.assertEquals(4, bookShelf.listBooks().size());
+        bookShelf.returnBook(0);
+        Assert.assertEquals(5, bookShelf.listBooks().size());
+    }
+
 
 }
