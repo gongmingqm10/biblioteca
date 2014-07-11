@@ -15,17 +15,31 @@ import java.util.List;
  * Time: 9:07 AM
  * Email:gongmingqm10@foxmail.com
  */
-public class BookReader {
+public class BookShelf {
 
     private List<Book> books;
+    private List<Book> checkoutBookList;
 
-    public BookReader(String file) {
+    public BookShelf(String file) {
         books = new ArrayList<Book>();
+        checkoutBookList = new ArrayList<Book>();
         readFile(file);
     }
 
     public List<Book> listBooks() {
         return books;
+    }
+
+    public void checkoutBook(int position) {
+        checkoutBookList.add(books.remove(position));
+    }
+
+    public List<Book> getCheckoutList() {
+        return checkoutBookList;
+    }
+
+    public void returnBook(int position) {
+        books.add(checkoutBookList.remove(position));
     }
 
     private void readFile(String file) {

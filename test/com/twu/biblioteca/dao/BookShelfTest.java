@@ -1,24 +1,23 @@
 package com.twu.biblioteca.dao;
 
 import com.twu.biblioteca.model.Book;
-import junit.framework.TestCase;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
 
-public class BookReaderTest{
-    private BookReader reader;
+public class BookShelfTest {
+    private BookShelf bookShelf;
 
     @Before
     public void setUp() throws Exception {
-        reader = new BookReader("books.csv");
+        bookShelf = new BookShelf("books.csv");
     }
 
     @Test
     public void listBooksTest() {
-        List<Book> books = reader.listBooks();
+        List<Book> books = bookShelf.listBooks();
         if (books == null || books.size() == 0) {
             Assert.fail("No book loaded");
         } else {
